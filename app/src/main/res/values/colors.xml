@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00A09F</color>
+    <color name="colorPrimaryDark">#00A09F</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorContainer">#ECECEC</color>
+
+    <color name="colorRiskProfile1">#99EFFE</color>
+    <color name="colorRiskProfile2">#68F1DD</color>
+    <color name="colorRiskProfile3">#91ED6E</color>
+    <color name="colorRiskProfile4">#B0F52A</color>
+    <color name="colorRiskProfile5">#DDF50D</color>
+    <color name="colorRiskProfile6">#F9F00D</color>
+    <color name="colorRiskProfile7">#FEDC00</color>
+    <color name="colorRiskProfile8">#FFBB00</color>
+    <color name="colorRiskProfile9">#FF8800</color>
+    <color name="colorRiskProfile10">#FE5E00</color>
+    <color name="colorRiskProfile11">#FF0600</color>
+    <color name="colorRiskProfile12">#B41414</color>
+
+</resources>

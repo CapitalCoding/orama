@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_10"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/fund_item_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_10"
+        android:weightSum="2"
+        >
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                style="@style/fund_item_title"
+                android:id="@+id/fund_item_full_name"
+                android:text="Yes Gyyssadasdsadadsadda"
+                android:gravity="center"
+                >
+            </TextView>
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_stars_24">
+            </ImageView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                >
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/fund_item_percentage_amount_twelve_months"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/fund_item_subtitle"
+                    android:text="36,41%"
+                    android:gravity="center"
+                    >
+                </TextView>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/fund_item_subtitle"
+                    android:text="(12M)"
+                    android:gravity="center"
+                    >
+                </TextView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/fund_item_subtitle"
+                android:text="Aplicação Mínima"
+                android:gravity="center"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/fund_item_aplication_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/fund_item_subtitle"
+                android:text="R$ 25.000,00"
+                android:gravity="center"
+                >
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/colorRiskProfile1" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
