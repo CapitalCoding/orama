@@ -94,7 +94,6 @@
                             android:text="2020"
                             />
                         <TextView
-                            android:id="@+id/fund_item_detail_twelve_months_profit"
                             style="@style/fund_detail_tab_header_item"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -128,6 +127,7 @@
                             android:text="39,96%"
                             />
                         <TextView
+                            android:id="@+id/fund_item_detail_twelve_months_profit"
                             style="@style/fund_detail_tab_info"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

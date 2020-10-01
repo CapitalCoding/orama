@@ -21,6 +21,7 @@ import com.diogomoreno.orama.R;
 import com.diogomoreno.orama.entities.FundResource;
 import com.diogomoreno.orama.handler.RealmHandler;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import butterknife.BindView;
@@ -109,12 +110,15 @@ public class FundItemFragment extends Fragment {
     }
 
     private void setupView() {
-        fundTitleTv.setText(mViewModel.mFundResource.getFullName());
+        fundTitleTv.setText(mViewModel.mFundResource.getSimpleName());
         fundTypeTv.setText(mViewModel.getmFundResource().getSpecification().getFundMacroStrategy().getName());
         fundCategoryTv.setText(mViewModel.getmFundResource().getSpecification().getFundMainStrategy().getName());
-        fundMonthProfit.setText(String.valueOf(mViewModel.getmFundResource().getProfitabilities().getMonth()));
-        fundYearProfit.setText(String.valueOf(mViewModel.getmFundResource().getProfitabilities().getYear()));
-        fundTwelveMonthsProfit.setText(String.valueOf(mViewModel.getmFundResource().getProfitabilities().getTwelveMonths()));
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00%");
+        decimalFormat.setMinimumFractionDigits(3);
+
+        fundMonthProfit.setText(decimalFormat.format(mViewModel.getmFundResource().getProfitabilities().getMonth()));
+        fundYearProfit.setText(decimalFormat.format(mViewModel.getmFundResource().getProfitabilities().getYear()));
+        fundTwelveMonthsProfit.setText(decimalFormat.format((mViewModel.getmFundResource().getProfitabilities().getTwelveMonths())));
         inflateCircleForRisk(mViewModel.getmFundResource().getSpecification().getFundRiskProfile().getScoreRangeOrder());
         NumberFormat format = NumberFormat.getCurrencyInstance();
 
@@ -132,11 +136,10 @@ public class FundItemFragment extends Fragment {
         Log.d(TAG, "inflateCircleForRisk: risk level:"+riskLevel);
         for (int i = 0; i < childCount; i++) {
             ImageView imageView = (ImageView) colorBox.getChildAt(i);
-            if((i + 1) == riskLevel){
-
+            if((i + 1) <= riskLevel){
 
             }else{
-                imageView.setAlpha(0.1f);
+                imageView.setAlpha(0);
             }
 
 

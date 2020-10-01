@@ -30,6 +30,7 @@
                 android:layout_height="40dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:visibility="gone"
                 />
             <LinearLayout
                 android:id="@+id/funds_filter_slider_box"
@@ -70,8 +71,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="10"
-                    android:progress="1"
+                    android:progress="0"
                     android:progressTint="@color/colorPrimary"
+
                     android:thumbTint="@color/colorPrimary"
                     tools:ignore="UnusedAttribute" />
 
@@ -90,6 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/layoutMargin"
+                    android:visibility="gone"
                     android:orientation="vertical">
                     <TextView
                         style="@style/textFundsCategoryTitle"

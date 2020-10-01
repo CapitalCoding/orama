@@ -13,6 +13,8 @@ public class FundItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fund_item_activity);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Bundle bundle = getIntent().getExtras();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -20,4 +22,6 @@ public class FundItemActivity extends AppCompatActivity {
                     .commitNow();
         }
     }
+
+
 }

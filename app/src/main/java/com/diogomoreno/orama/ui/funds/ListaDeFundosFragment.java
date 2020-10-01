@@ -80,6 +80,7 @@ public class ListaDeFundosFragment extends Fragment {
         setupAdapters();
 
         formatApplicationLimit(0);
+        minimumApplicationSeekBar.setEnabled(false);
         minimumApplicationSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -104,15 +105,19 @@ public class ListaDeFundosFragment extends Fragment {
             }
         });
 
+        if(fundsItemAdapter != null && fundsItemAdapter.getData().isEmpty()) {
+            swipeRefreshLayout.setRefreshing(true);
+            loadApiData();
+        }
         return view;
     }
 
     public void formatApplicationLimit(int progress){
-        double value = progress == 0 ? 1000.00  : 1000.00 * progress;
+        double value = 1000.00 * progress;
         Resources res = getResources();
         NumberFormat format = NumberFormat.getCurrencyInstance();
         String text = String.format(res.getString(R.string.minimum_application_placeholder), format.format(value));
-        minimumApplicationValueTv.setText(text);
+        minimumApplicationValueTv.setText(progress == 0 ? "Nenhuma aplicação mínima definida" : text);
     }
     private static final String TAG = "ListaDeFundosFragment";
 
@@ -175,19 +180,11 @@ public class ListaDeFundosFragment extends Fragment {
         fundsFilterButtonList.setAdapter(fundsFilterButtonAdapter);
 
         fundsItemAdapter = new FundsItemAdapter(fundResourceList);
-//        fundsItemAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-//            @Override
-//            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-//                FundResource fundResource = fundsItemAdapter.getItem(position);
-//                Toast.makeText(getContext(), "Tentando abrir fundo id:"+fundResource.getId(), Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
         fundsItemAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 FundResource fundResource = fundsItemAdapter.getItem(position);
-                Toast.makeText(getContext(), "Tentando abrir fundo id:"+fundResource.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Detalhes do fundo "+fundResource.getSlug(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getActivity(), FundItemActivity.class);
                             intent.putExtra("fund_resource_id", fundResource.getId());
                             startActivity(intent);

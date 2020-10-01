@@ -17,7 +17,7 @@ public class FundsItemAdapter extends BaseQuickAdapter<FundResource, BaseViewHol
 
     @Override
     protected void convert(BaseViewHolder helper, FundResource item) {
-        helper.setText(R.id.fund_item_full_name, item.getFullName());
+        helper.setText(R.id.fund_item_full_name, item.getSimpleName());
 
         DecimalFormat format = new DecimalFormat("#.##");
         String formatedDouble = format.format((item.getProfitabilities().getTwelveMonths() * 100));
