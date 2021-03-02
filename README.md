@@ -7,9 +7,11 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 
-Teste técnico que foi aceito ✔️ pela Órama Investimentos
+### ➡️ Teste técnico
+### ➡️ Resultado ✔
+### ➡️ Empresa: Órama Investimentos
 
-<img src="screenshots/orama.svg"/>
+<img src="screenshots/orama.svg">
 
 
 <img src="https://diogomoreno.com/wp-content/uploads/2020/12/clean.png"/>
