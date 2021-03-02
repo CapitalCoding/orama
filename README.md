@@ -32,6 +32,11 @@ Artigos de princípios aplicados no projeto
 
 [Administração das dependências do Gradle com Kotlin (buildSrc)](https://proandroiddev.com/gradle-dependency-management-with-kotlin-94eed4df9a28)
 
+Screenshots
+-
+
+<img src="screenshots/home.png"><img src="screenshots/fund.png"><img src="screenshots/fund2.png">
+
 License
 -
 
