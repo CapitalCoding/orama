@@ -67,7 +67,11 @@ public class ListaDeFundosFragment extends Fragment {
     }
 
     List<FundResource> fundResourceList = new ArrayList<>();
-    List<String> filterButtonList = new ArrayList<>();
+    List<String> filterButtonList = new ArrayList<String>(){{
+        this.add("Todos");
+        this.add("Renda Fixa");
+        this.add("Estratégias DIferenciadas");
+    }};
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -98,12 +102,7 @@ public class ListaDeFundosFragment extends Fragment {
             }
         });
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                loadApiData();
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(() -> loadApiData());
 
         if(fundsItemAdapter != null && fundsItemAdapter.getData().isEmpty()) {
             swipeRefreshLayout.setRefreshing(true);
@@ -169,9 +168,7 @@ public class ListaDeFundosFragment extends Fragment {
             }
         });
 
-        filterButtonList.add("Todos");
-        filterButtonList.add("Renda Fixa");
-        filterButtonList.add("Estratégias DIferenciadas");
+
     }
     FundsItemAdapter fundsItemAdapter;
     private void setupAdapters() {
@@ -180,15 +177,12 @@ public class ListaDeFundosFragment extends Fragment {
         fundsFilterButtonList.setAdapter(fundsFilterButtonAdapter);
 
         fundsItemAdapter = new FundsItemAdapter(fundResourceList);
-        fundsItemAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                FundResource fundResource = fundsItemAdapter.getItem(position);
-                Toast.makeText(getContext(), "Detalhes do fundo "+fundResource.getSlug(), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getActivity(), FundItemActivity.class);
-                            intent.putExtra("fund_resource_id", fundResource.getId());
-                            startActivity(intent);
-            }
+        fundsItemAdapter.setOnItemClickListener((adapter, view, position) -> {
+            FundResource fundResource = fundsItemAdapter.getItem(position);
+            Toast.makeText(getContext(), "Detalhes do fundo "+fundResource.getSlug(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), FundItemActivity.class);
+                        intent.putExtra("fund_resource_id", fundResource.getId());
+                        startActivity(intent);
         });
         rendaFixaGlobalList.setAdapter(fundsItemAdapter);
 
