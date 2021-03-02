@@ -35,7 +35,7 @@ Artigos de princípios aplicados no projeto
 Screenshots
 -
 
-<img src="screenshots/home.png"><img src="screenshots/fund.png"><img src="screenshots/fund2.png">
+<img src="screenshots/home.png" width="555px" height="270px"><img src="screenshots/fund.png" width="555px" height="270px"><img src="screenshots/fund2.png" width="555px" height="270px">
 
 License
 -
